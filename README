@@ -1,0 +1,10 @@
+This mod overrides some of the graphics from Factorio base mod with simple 2D boxes.
+
+All of the graphics is generated, based on icons for the entities in base mod.
+To regenerate it run `./generate.lua <path_to_factorio_data_directory>`.
+Denpends on lua-gd for graphics generation.
+
+Currently, this is only a little more then an idea and it needs a lot of work.
+Also the code is not as nice as it should be. This is my first lua program and I'm
+still getting the hang of the language :)
+If you want to change anything, please make a pull request, I'll be happy to merge it.
