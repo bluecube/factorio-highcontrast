@@ -7,7 +7,6 @@ require("io")
 data_dir = arg[1]
 unit_px = 32
 
-building_bg_color = "5e5e62"
 building_line_color = "000000"
 light_on_color = "00ff00"
 light_off_color = "3f523f"
@@ -15,6 +14,8 @@ icon_offset = 4
 light_offset = 3
 light_width = 8
 light_height = 5
+default_color = "bfbfbf"
+background_colors = { ['furnace'] = "801919", ['container'] = default_color, ['assembling-machine'] = "191980" }
 
 function load_data()
     local old_package_path = package.path
@@ -30,6 +31,9 @@ function replace_path(path)
 end
 
 function color(image, hex)
+    if not hex then
+        return color(image, default_color)
+    end
     local r = tonumber(hex:sub(1, 2), 16)
     local g = tonumber(hex:sub(3, 4), 16)
     local b = tonumber(hex:sub(5, 6), 16)
@@ -37,10 +41,10 @@ function color(image, hex)
     return image:colorResolve(r, g, b)
 end
 
-function make_image_base(width, height, icon_path)
+function make_image_base(width, height, background, icon_path)
     local image = gd.createTrueColor(width, height)
 
-    image:filledRectangle(0, 0, width, height, color(image, building_bg_color))
+    image:filledRectangle(0, 0, width, height, color(image, background))
     image:rectangle(0, 0, width - 1, height - 1, color(image, building_line_color))
 
     local icon = gd.createFromPng(icon_path)
@@ -78,7 +82,8 @@ function building_image(entity_data, light)
     width = math.floor(width * unit_px)
     height = math.floor(height * unit_px)
 
-    local base = make_image_base(width, height, replace_path(entity_data.icon))
+    local base = make_image_base(width, height, background_colors[entity_data.type],
+                                 replace_path(entity_data.icon))
 
     local image
     if light then
