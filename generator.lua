@@ -98,15 +98,15 @@ function building_image(entity_data, light)
         image = base
     end
 
-    local filename = "/generated/" .. entity_data.name .. ".png"
+    local filename = "/generated/" .. entity_data.type .. "-" .. entity_data.name .. ".png"
 
     image:png(script_dir .. filename)
     return filename, width, height
 end
 
-function process_all_of_type(entity_type, light, handler)
+function process_building(entity_type, light, handler)
     for k, v in pairs(data.raw[entity_type]) do
-        print("Generating graphics overrides for " .. k .. " (" .. entity_type .. ")")
+        print("Building " .. k .. " (" .. entity_type .. ")")
         local filename, width, height = building_image(v, light)
         local id = "data.raw['" .. entity_type .. "']['" .. k .. "']"
 
@@ -118,7 +118,7 @@ script_dir = arg[0]:match("(.*/)")
 load_data()
 f = assert(io.open(script_dir .. "/generated/data.lua", "w"))
 
-process_all_of_type("furnace", true, function(id, image_filename, image_width, image_height, file)
+process_building("furnace", true, function(id, image_filename, image_width, image_height, file)
     file:write(id .. [[.on_animation = {
         filename = "__highcontrast__]] .. image_filename .. [[",
         priority = "extra-high",
@@ -148,7 +148,7 @@ process_all_of_type("furnace", true, function(id, image_filename, image_width, i
     file:write("\n")
 end)
 
-process_all_of_type("container", false, function(id, image_filename, image_width, image_height, file)
+process_building("container", false, function(id, image_filename, image_width, image_height, file)
     file:write(id .. [[.picture = {
         filename = "__highcontrast__]] .. image_filename .. [[",
         priority = "extra-high",
@@ -160,7 +160,7 @@ process_all_of_type("container", false, function(id, image_filename, image_width
 end)
 
 -- this causes factorio to crash; to be investigated :-)
---[=[process_all_of_type("assembling-machine", true, function(id, image_filename, image_width, image_height, file)
+--[=[process_building("assembling-machine", true, function(id, image_filename, image_width, image_height, file)
     file:write(id .. [[.animation = {
         filename = "__highcontrast__]] .. image_filename .. [[",
         priority = "medium",
@@ -172,3 +172,36 @@ end)
         }]])
     file:write("\n")
 end)]=]
+
+
+for k, v in pairs(data.raw["tile"]) do
+    print("Tile " .. k .. " (tile)")
+
+    local image = gd.createTrueColor(unit_px, unit_px)
+    image:filledRectangle(0, 0, unit_px, unit_px,
+                          image:colorResolve(math.floor(v.map_color.r * 255),
+                                             math.floor(v.map_color.g * 255),
+                                             math.floor(v.map_color.b * 255)))
+    local filename = "/generated/tile-" .. v.name .. ".png"
+    image:png(script_dir .. filename)
+
+    f:write("data.raw['tile']['" .. k .. [['].variants = {
+        main = {
+            picture = "__highcontrast__]] .. filename .. [[",
+            count = 1
+        },
+        inner_corner = {
+            picture = "__highcontrast__]] .. filename .. [[",
+            count = 1
+        },
+        outer_corner = {
+            picture = "__highcontrast__]] .. filename .. [[",
+            count = 1
+        },
+        side = {
+            picture = "__highcontrast__]] .. filename .. [[",
+            count = 1
+        }
+        }]])
+    f:write("\n")
+end

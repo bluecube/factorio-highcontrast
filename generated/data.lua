@@ -1,5 +1,5 @@
 data.raw['furnace']['electric-furnace'].on_animation = {
-        filename = "__highcontrast__/generated/electric-furnace.png",
+        filename = "__highcontrast__/generated/furnace-electric-furnace.png",
         priority = "extra-high",
         frame_width = 96,
         frame_height = 96,
@@ -7,7 +7,7 @@ data.raw['furnace']['electric-furnace'].on_animation = {
         shift = {0, 0}
         }
 data.raw['furnace']['electric-furnace'].off_animation = {
-        filename = "__highcontrast__/generated/electric-furnace.png",
+        filename = "__highcontrast__/generated/furnace-electric-furnace.png",
         priority = "extra-high",
         frame_width = 96,
         frame_height = 96,
@@ -23,7 +23,7 @@ data.raw['furnace']['electric-furnace'].fire_animation = {
         shift = {0, 0}
         }
 data.raw['furnace']['steel-furnace'].on_animation = {
-        filename = "__highcontrast__/generated/steel-furnace.png",
+        filename = "__highcontrast__/generated/furnace-steel-furnace.png",
         priority = "extra-high",
         frame_width = 51,
         frame_height = 64,
@@ -31,7 +31,7 @@ data.raw['furnace']['steel-furnace'].on_animation = {
         shift = {0, 0}
         }
 data.raw['furnace']['steel-furnace'].off_animation = {
-        filename = "__highcontrast__/generated/steel-furnace.png",
+        filename = "__highcontrast__/generated/furnace-steel-furnace.png",
         priority = "extra-high",
         frame_width = 51,
         frame_height = 64,
@@ -47,7 +47,7 @@ data.raw['furnace']['steel-furnace'].fire_animation = {
         shift = {0, 0}
         }
 data.raw['furnace']['stone-furnace'].on_animation = {
-        filename = "__highcontrast__/generated/stone-furnace.png",
+        filename = "__highcontrast__/generated/furnace-stone-furnace.png",
         priority = "extra-high",
         frame_width = 51,
         frame_height = 64,
@@ -55,7 +55,7 @@ data.raw['furnace']['stone-furnace'].on_animation = {
         shift = {0, 0}
         }
 data.raw['furnace']['stone-furnace'].off_animation = {
-        filename = "__highcontrast__/generated/stone-furnace.png",
+        filename = "__highcontrast__/generated/furnace-stone-furnace.png",
         priority = "extra-high",
         frame_width = 51,
         frame_height = 64,
@@ -71,30 +71,156 @@ data.raw['furnace']['stone-furnace'].fire_animation = {
         shift = {0, 0}
         }
 data.raw['container']['iron-chest'].picture = {
-        filename = "__highcontrast__/generated/iron-chest.png",
+        filename = "__highcontrast__/generated/container-iron-chest.png",
         priority = "extra-high",
         width = 32,
         height = 32,
         shift = {0, 0}
         }
 data.raw['container']['steel-chest'].picture = {
-        filename = "__highcontrast__/generated/steel-chest.png",
+        filename = "__highcontrast__/generated/container-steel-chest.png",
         priority = "extra-high",
         width = 32,
         height = 32,
         shift = {0, 0}
         }
 data.raw['container']['space-module-wreck'].picture = {
-        filename = "__highcontrast__/generated/space-module-wreck.png",
+        filename = "__highcontrast__/generated/container-space-module-wreck.png",
         priority = "extra-high",
         width = 172,
         height = 96,
         shift = {0, 0}
         }
 data.raw['container']['wooden-chest'].picture = {
-        filename = "__highcontrast__/generated/wooden-chest.png",
+        filename = "__highcontrast__/generated/container-wooden-chest.png",
         priority = "extra-high",
         width = 32,
         height = 32,
         shift = {0, 0}
+        }
+data.raw['tile']['water'].variants = {
+        main = {
+            picture = "__highcontrast__/generated/tile-water.png",
+            count = 1
+        },
+        inner_corner = {
+            picture = "__highcontrast__/generated/tile-water.png",
+            count = 1
+        },
+        outer_corner = {
+            picture = "__highcontrast__/generated/tile-water.png",
+            count = 1
+        },
+        side = {
+            picture = "__highcontrast__/generated/tile-water.png",
+            count = 1
+        }
+        }
+data.raw['tile']['dirt'].variants = {
+        main = {
+            picture = "__highcontrast__/generated/tile-dirt.png",
+            count = 1
+        },
+        inner_corner = {
+            picture = "__highcontrast__/generated/tile-dirt.png",
+            count = 1
+        },
+        outer_corner = {
+            picture = "__highcontrast__/generated/tile-dirt.png",
+            count = 1
+        },
+        side = {
+            picture = "__highcontrast__/generated/tile-dirt.png",
+            count = 1
+        }
+        }
+data.raw['tile']['deepwater'].variants = {
+        main = {
+            picture = "__highcontrast__/generated/tile-deepwater.png",
+            count = 1
+        },
+        inner_corner = {
+            picture = "__highcontrast__/generated/tile-deepwater.png",
+            count = 1
+        },
+        outer_corner = {
+            picture = "__highcontrast__/generated/tile-deepwater.png",
+            count = 1
+        },
+        side = {
+            picture = "__highcontrast__/generated/tile-deepwater.png",
+            count = 1
+        }
+        }
+data.raw['tile']['out-of-map'].variants = {
+        main = {
+            picture = "__highcontrast__/generated/tile-out-of-map.png",
+            count = 1
+        },
+        inner_corner = {
+            picture = "__highcontrast__/generated/tile-out-of-map.png",
+            count = 1
+        },
+        outer_corner = {
+            picture = "__highcontrast__/generated/tile-out-of-map.png",
+            count = 1
+        },
+        side = {
+            picture = "__highcontrast__/generated/tile-out-of-map.png",
+            count = 1
+        }
+        }
+data.raw['tile']['sand'].variants = {
+        main = {
+            picture = "__highcontrast__/generated/tile-sand.png",
+            count = 1
+        },
+        inner_corner = {
+            picture = "__highcontrast__/generated/tile-sand.png",
+            count = 1
+        },
+        outer_corner = {
+            picture = "__highcontrast__/generated/tile-sand.png",
+            count = 1
+        },
+        side = {
+            picture = "__highcontrast__/generated/tile-sand.png",
+            count = 1
+        }
+        }
+data.raw['tile']['hills'].variants = {
+        main = {
+            picture = "__highcontrast__/generated/tile-hills.png",
+            count = 1
+        },
+        inner_corner = {
+            picture = "__highcontrast__/generated/tile-hills.png",
+            count = 1
+        },
+        outer_corner = {
+            picture = "__highcontrast__/generated/tile-hills.png",
+            count = 1
+        },
+        side = {
+            picture = "__highcontrast__/generated/tile-hills.png",
+            count = 1
+        }
+        }
+data.raw['tile']['grass'].variants = {
+        main = {
+            picture = "__highcontrast__/generated/tile-grass.png",
+            count = 1
+        },
+        inner_corner = {
+            picture = "__highcontrast__/generated/tile-grass.png",
+            count = 1
+        },
+        outer_corner = {
+            picture = "__highcontrast__/generated/tile-grass.png",
+            count = 1
+        },
+        side = {
+            picture = "__highcontrast__/generated/tile-grass.png",
+            count = 1
+        }
         }
