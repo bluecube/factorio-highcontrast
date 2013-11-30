@@ -187,29 +187,37 @@ end)
 for k, v in pairs(data.raw["tile"]) do
     print("Tile " .. k .. " (tile)")
 
-    local image = gd.createTrueColor(unit_px, unit_px)
-    image:filledRectangle(0, 0, unit_px, unit_px,
-                          image:colorResolve(math.floor(v.map_color.r * 255),
-                                             math.floor(v.map_color.g * 255),
-                                             math.floor(v.map_color.b * 255)))
-    local filename = "/generated/tile-" .. v.name .. ".png"
-    image:png(script_dir .. filename)
+    local tile = "/graphics/terrain.png"
+    local inner = "/graphics/terrain-transition.png"
+    local outer = "/graphics/terrain-transition.png"
+    local side = "/graphics/terrain-transition.png"
+
+    if k == "water" or k == "deepwater" then
+        tile = "/graphics/water.png"
+    end
+
+    if k == "water"  then
+        inner = "/graphics/water-inner.png"
+        outer = "/graphics/water-outer.png"
+        side = "/graphics/water-side.png"
+    end
 
     f:write("data.raw['tile']['" .. k .. [['].variants = {
-        main = {
-            picture = "__highcontrast__]] .. filename .. [[",
+        main = {{
+            picture = "__highcontrast__]] .. tile .. [[",
+            size = 1,
             count = 1
-        },
+        }},
         inner_corner = {
-            picture = "__highcontrast__]] .. filename .. [[",
+            picture = "__highcontrast__]] .. inner .. [[",
             count = 1
         },
         outer_corner = {
-            picture = "__highcontrast__]] .. filename .. [[",
+            picture = "__highcontrast__]] .. outer .. [[",
             count = 1
         },
         side = {
-            picture = "__highcontrast__]] .. filename .. [[",
+            picture = "__highcontrast__]] .. side .. [[",
             count = 1
         }
         }]])

@@ -126,128 +126,135 @@ data.raw['assembling-machine']['assembling-machine-3'].animation = {
         shift = {0, 0}
         }
 data.raw['tile']['water'].variants = {
-        main = {
-            picture = "__highcontrast__/generated/tile-water.png",
+        main = {{
+            picture = "__highcontrast__/graphics/water.png",
+            size = 1,
             count = 1
-        },
+        }},
         inner_corner = {
-            picture = "__highcontrast__/generated/tile-water.png",
+            picture = "__highcontrast__/graphics/water-inner.png",
             count = 1
         },
         outer_corner = {
-            picture = "__highcontrast__/generated/tile-water.png",
+            picture = "__highcontrast__/graphics/water-outer.png",
             count = 1
         },
         side = {
-            picture = "__highcontrast__/generated/tile-water.png",
+            picture = "__highcontrast__/graphics/water-side.png",
             count = 1
         }
         }
 data.raw['tile']['dirt'].variants = {
-        main = {
-            picture = "__highcontrast__/generated/tile-dirt.png",
+        main = {{
+            picture = "__highcontrast__/graphics/terrain.png",
+            size = 1,
             count = 1
-        },
+        }},
         inner_corner = {
-            picture = "__highcontrast__/generated/tile-dirt.png",
+            picture = "__highcontrast__/graphics/terrain-transition.png",
             count = 1
         },
         outer_corner = {
-            picture = "__highcontrast__/generated/tile-dirt.png",
+            picture = "__highcontrast__/graphics/terrain-transition.png",
             count = 1
         },
         side = {
-            picture = "__highcontrast__/generated/tile-dirt.png",
+            picture = "__highcontrast__/graphics/terrain-transition.png",
             count = 1
         }
         }
 data.raw['tile']['deepwater'].variants = {
-        main = {
-            picture = "__highcontrast__/generated/tile-deepwater.png",
+        main = {{
+            picture = "__highcontrast__/graphics/water.png",
+            size = 1,
             count = 1
-        },
+        }},
         inner_corner = {
-            picture = "__highcontrast__/generated/tile-deepwater.png",
+            picture = "__highcontrast__/graphics/terrain-transition.png",
             count = 1
         },
         outer_corner = {
-            picture = "__highcontrast__/generated/tile-deepwater.png",
+            picture = "__highcontrast__/graphics/terrain-transition.png",
             count = 1
         },
         side = {
-            picture = "__highcontrast__/generated/tile-deepwater.png",
+            picture = "__highcontrast__/graphics/terrain-transition.png",
             count = 1
         }
         }
 data.raw['tile']['out-of-map'].variants = {
-        main = {
-            picture = "__highcontrast__/generated/tile-out-of-map.png",
+        main = {{
+            picture = "__highcontrast__/graphics/terrain.png",
+            size = 1,
             count = 1
-        },
+        }},
         inner_corner = {
-            picture = "__highcontrast__/generated/tile-out-of-map.png",
+            picture = "__highcontrast__/graphics/terrain-transition.png",
             count = 1
         },
         outer_corner = {
-            picture = "__highcontrast__/generated/tile-out-of-map.png",
+            picture = "__highcontrast__/graphics/terrain-transition.png",
             count = 1
         },
         side = {
-            picture = "__highcontrast__/generated/tile-out-of-map.png",
+            picture = "__highcontrast__/graphics/terrain-transition.png",
             count = 1
         }
         }
 data.raw['tile']['sand'].variants = {
-        main = {
-            picture = "__highcontrast__/generated/tile-sand.png",
+        main = {{
+            picture = "__highcontrast__/graphics/terrain.png",
+            size = 1,
             count = 1
-        },
+        }},
         inner_corner = {
-            picture = "__highcontrast__/generated/tile-sand.png",
+            picture = "__highcontrast__/graphics/terrain-transition.png",
             count = 1
         },
         outer_corner = {
-            picture = "__highcontrast__/generated/tile-sand.png",
+            picture = "__highcontrast__/graphics/terrain-transition.png",
             count = 1
         },
         side = {
-            picture = "__highcontrast__/generated/tile-sand.png",
+            picture = "__highcontrast__/graphics/terrain-transition.png",
             count = 1
         }
         }
 data.raw['tile']['hills'].variants = {
-        main = {
-            picture = "__highcontrast__/generated/tile-hills.png",
+        main = {{
+            picture = "__highcontrast__/graphics/terrain.png",
+            size = 1,
             count = 1
-        },
+        }},
         inner_corner = {
-            picture = "__highcontrast__/generated/tile-hills.png",
+            picture = "__highcontrast__/graphics/terrain-transition.png",
             count = 1
         },
         outer_corner = {
-            picture = "__highcontrast__/generated/tile-hills.png",
+            picture = "__highcontrast__/graphics/terrain-transition.png",
             count = 1
         },
         side = {
-            picture = "__highcontrast__/generated/tile-hills.png",
+            picture = "__highcontrast__/graphics/terrain-transition.png",
             count = 1
         }
         }
 data.raw['tile']['grass'].variants = {
-        main = {
-            picture = "__highcontrast__/generated/tile-grass.png",
+        main = {{
+            picture = "__highcontrast__/graphics/terrain.png",
+            size = 1,
             count = 1
-        },
+        }},
         inner_corner = {
-            picture = "__highcontrast__/generated/tile-grass.png",
+            picture = "__highcontrast__/graphics/terrain-transition.png",
             count = 1
         },
         outer_corner = {
-            picture = "__highcontrast__/generated/tile-grass.png",
+            picture = "__highcontrast__/graphics/terrain-transition.png",
             count = 1
         },
         side = {
-            picture = "__highcontrast__/generated/tile-grass.png",
+            picture = "__highcontrast__/graphics/terrain-transition.png",
             count = 1
         }
         }
