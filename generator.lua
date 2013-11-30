@@ -17,17 +17,28 @@ light_height = 5
 default_color = "bfbfbf"
 background_colors = { ['furnace'] = "801919", ['container'] = default_color, ['assembling-machine'] = "191980" }
 
-function load_data()
-    local old_package_path = package.path
-    package.path = data_dir .. "/core/lualib/?.lua;" .. package.path
-    package.path = data_dir .. "/base/?.lua;" .. package.path
-    require("dataloader")
-    dofile(data_dir .. "/base/data.lua")
-    package.path = old_package_path
+path_substitutions = {}
+
+for i = 1, #arg do
+    if i == 1 then
+        package.path = arg[i] .. "/lualib/?.lua;" .. package.path
+        require("dataloader")
+    end
+
+    local old_path = package.path
+    package.path = arg[i] .. "/?.lua;" .. package.path
+
+    dofile(arg[i] .. "/data.lua")
+
+    extended_path = "./" .. arg[i]
+
+    path_substitutions["__" .. extended_path:gsub("^.*/([^/]+)/?$", "%1") .. "__"] = arg[i]
+
+    package.path = old_path
 end
 
 function replace_path(path)
-    return path:gsub("__base__", data_dir .. "/base/")
+    return path:gsub("__[a-zA-Z0-9-_]*__", path_substitutions)
 end
 
 function color(image, hex)
@@ -115,7 +126,6 @@ function process_building(entity_type, light, handler)
 end
 
 script_dir = arg[0]:match("(.*/)")
-load_data()
 f = assert(io.open(script_dir .. "/generated/data.lua", "w"))
 
 process_building("furnace", true, function(id, image_filename, image_width, image_height, file)
