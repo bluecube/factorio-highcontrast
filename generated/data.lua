@@ -98,6 +98,33 @@ data.raw['container']['wooden-chest'].picture = {
         height = 32,
         shift = {0, 0}
         }
+data.raw['assembling-machine']['assembling-machine-1'].animation = {
+        filename = "__highcontrast__/generated/assembling-machine-assembling-machine-1.png",
+        priority = "medium",
+        frame_width = 96,
+        frame_height = 96,
+        frame_count = 1,
+        line_length = 2,
+        shift = {0, 0}
+        }
+data.raw['assembling-machine']['assembling-machine-2'].animation = {
+        filename = "__highcontrast__/generated/assembling-machine-assembling-machine-2.png",
+        priority = "medium",
+        frame_width = 96,
+        frame_height = 96,
+        frame_count = 1,
+        line_length = 2,
+        shift = {0, 0}
+        }
+data.raw['assembling-machine']['assembling-machine-3'].animation = {
+        filename = "__highcontrast__/generated/assembling-machine-assembling-machine-3.png",
+        priority = "medium",
+        frame_width = 96,
+        frame_height = 96,
+        frame_count = 1,
+        line_length = 2,
+        shift = {0, 0}
+        }
 data.raw['tile']['water'].variants = {
         main = {
             picture = "__highcontrast__/generated/tile-water.png",

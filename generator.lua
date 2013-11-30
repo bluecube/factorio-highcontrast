@@ -170,7 +170,7 @@ process_building("container", false, function(id, image_filename, image_width, i
 end)
 
 -- this causes factorio to crash; to be investigated :-)
---[=[process_building("assembling-machine", true, function(id, image_filename, image_width, image_height, file)
+process_building("assembling-machine", true, function(id, image_filename, image_width, image_height, file)
     file:write(id .. [[.animation = {
         filename = "__highcontrast__]] .. image_filename .. [[",
         priority = "medium",
@@ -181,7 +181,7 @@ end)
         shift = {0, 0}
         }]])
     file:write("\n")
-end)]=]
+end)
 
 
 for k, v in pairs(data.raw["tile"]) do
