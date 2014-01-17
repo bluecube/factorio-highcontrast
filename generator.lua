@@ -4,6 +4,8 @@ require("gd")
 require("math")
 require("io")
 
+Loader = require("loader")
+
 data_dir = arg[1]
 unit_px = 32
 
@@ -17,29 +19,7 @@ light_height = 5
 default_color = "bfbfbf"
 background_colors = { ['furnace'] = "801919", ['container'] = default_color, ['assembling-machine'] = "191980" }
 
-path_substitutions = {}
-
-for i = 1, #arg do
-    if i == 1 then
-        package.path = arg[i] .. "/lualib/?.lua;" .. package.path
-        require("dataloader")
-    end
-
-    local old_path = package.path
-    package.path = arg[i] .. "/?.lua;" .. package.path
-
-    dofile(arg[i] .. "/data.lua")
-
-    extended_path = "./" .. arg[i]
-
-    path_substitutions["__" .. extended_path:gsub("^.*/([^/]+)/?$", "%1") .. "__"] = arg[i]
-
-    package.path = old_path
-end
-
-function replace_path(path)
-    return path:gsub("__[a-zA-Z0-9-_]*__", path_substitutions)
-end
+Loader.load_data(arg)
 
 function color(image, hex)
     if not hex then
@@ -94,7 +74,7 @@ function building_image(entity_data, light)
     height = math.floor(height * unit_px)
 
     local base = make_image_base(width, height, background_colors[entity_data.type],
-                                 replace_path(entity_data.icon))
+                                 Loader.expand_path(entity_data.icon))
 
     local image
     if light then
